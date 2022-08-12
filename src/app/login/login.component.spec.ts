@@ -43,26 +43,20 @@ describe('',()=>{
         expect(loginFormGroup.value).toEqual(loginFormValues)
     })
 
-    it('Checking userName',()=>{
+    it('Checking userName field',()=>{
 
         const userloginFormValue = component.loginForm.get('username')
-        // console.log(userloginFormValue);
-        
         expect(userloginFormValue.errors).not.toBeNull();
         expect(userloginFormValue.errors?.required).toBeTruthy();
     })
 
-    it('',()=>{
-
-        // const element :HTMLElement = fixture.nativeElement;
-        // const userElement :HTMLElement = element.querySelector('#userName')
+    it('Checking username after entering some values',()=>{
         const userElement = fixture.debugElement.nativeElement.querySelector('#loginForms')?.querySelectorAll('input')[0]
         console.log(userElement)
         fixture.detectChanges();
-        userElement.value = "sample@gmail.com"
-        // userElement. = 'sample@gmail.com';
+        userElement.value = "sample"
         userElement.dispatchEvent(new Event('input'));
-        expect(component.loginForm.get('username').errors).toBeFalsy('sample@gmail.com');
+        expect(component.loginForm.get('username').errors).toBeFalsy('sample');
 
     })
 })

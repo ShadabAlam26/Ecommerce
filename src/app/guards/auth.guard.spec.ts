@@ -24,25 +24,10 @@
 //     })
 
 //     it('be able to hit route when user is logged in',()=>{
-//          let x = true
-         
-//          logService.loginUser().subscribe(res=>{
-//             const user = res.find(x=>x.username==='shadab');
-//             if(user)
-//             {
-                
-//                 console.log(!logService.loggedIn);
-                
-//             }
-
-//          })        
+       
 
        
 //     })
-
-
-// })
-
 // function flasy(): boolean {
 //     return true
 // }
