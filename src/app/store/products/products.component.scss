@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.ellipsis
+{
+  white-space: nowrap;
+  width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+mat-form-field{
+  margin-top: 28px;
+margin-left: 2%;
+width: 24%;
+}
+
+.left
+{
+  margin-left: 45px;
+}
+
+::ng-deep .mat-tab-body-wrapper
+{
+    background-color:#3f51b5 !important ;
+}
+
+::ng-deep .mat-tab-body-content
+{
+    overflow-x: hidden !important;
+    overflow-y: auto;
+}
+
+.search-icon{
+    position: absolute;
+    right: 76%;
+    top: 39%;
+    z-index: 10;
+    color:#3f51b5
+}
+ 
+.card{
+  position: relative;
+  width: 300px;
+  height: 441px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 30px;
+}
+.content-1{
+  position: relative;
+  width:100%;
+  height: 57%;
+  background-image: linear-gradient(to bottom right,#fd8f22,#feb11f,#ffc519);
+}
+.content-1::after{
+  content: 'Product';
+  position: absolute;
+  left: -24%;
+  font-size: 12em;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(250,208, 93,0.493);
+}
+.content-1 .logo-img img{
+  width: 30px;
+  height: 15px;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+.content-1 img{
+  width: 185px;
+  height: 171px;
+  position: absolute;
+  top: 43%;
+  left: 19%;
+  transform: translateY(-38%);
+  z-index: 100;
+  border-radius: 109px;
+}
+.content-2{
+  position: relative;
+  height: 52%;
+  padding-top: 18px;
+}
+
+.branding,
+.size,
+.color{
+  padding-left: 20px;
+}
+.branding span:nth-child(1){
+  font-size: 20px;
+  font-weight: 500; 
+}
+.branding span:nth-child(2){
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0px 5px;
+}
+.branding span:nth-child(3){
+  position: absolute;
+  right: 4%;
+  top: 4%;
+  font-size: 10px;
+  background: #fb5c36;
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px 10px 2px;
+}
+.branding h4{
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 17px;
+}
+
+.add-cart {
+  width: 32px;
+  height: 32px;
+  background-image: linear-gradient(120deg, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);
+  font-size:10pt;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+} 
+
+.size,
+.color{
+  font-size: 12px;
+}
+.size span{
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 28px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 50%;
+  margin: 2px 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.size span:hover{
+  background: #ffc400;
+}
+
+.color span{
+  display: inline-block;
+  width:20px;
+  height: 20px;
+  text-align: center;
+  line-height: 26px;
+  font-size:10px;
+  margin: 10px 15px 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.color span:nth-child(2){
+  background: #0945a1;
+}
+.color span:nth-child(3){
+  background: #eb4835;
+}
+.color span:nth-child(4){
+  background: #a6ff00;
+}
+.color span:hover:nth-child(2):after{
+  content: '';
+  display: inline-block;
+  border: 1px solid #0945a1;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  margin-left: -4.1px;
+  margin-top: -3.9px;
+}
+.color span:hover:nth-child(3):after{
+  content: '';
+  display: inline-block;
+  border: 1px solid #eb4835;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  margin-left: -4.1px;
+  margin-top: -3.9px;
+}
+
+.color span:hover:nth-child(4):after{
+  content: '';
+  display: inline-block;
+  border: 1px solid #a6ff00;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  margin-left: -4.0px;
+  margin-top: -3.9px;
+}
+
+.price{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 26px;
+  cursor: pointer;
+}
+.price span{
+  background-image: linear-gradient(to right, #0ab5cf,#17d1ee);
+  padding: 8px 20px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 400;
+}
+.price span:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+.price span:active{
+  transform: translateY(1px);
+  box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+}

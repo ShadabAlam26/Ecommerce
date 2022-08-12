@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule,routComp } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -13,32 +10,50 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
-import { ReactiveFormsModule } from '@angular/forms';
+import {MatBadgeModule} from '@angular/material/badge';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http'
-import { HomeService } from './service/home.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { SnackBarPositionExample } from './common-moda';
-import { AuthService } from './service/auth.service';
-import {GooglePayButtonModule} from '@google-pay/button-angular'
+import {MatTabsModule} from '@angular/material/tabs';
+import { StoreRoutingModule } from './store-routing.module';
+import { StoreComponent } from './store.component';
+import { ProductsComponent } from './products/products.component';
+import { AuthService } from '../service/auth.service';
+import { HomeService } from '../service/home.service';
+import { FilterPipe } from '../pipe/filter.pipe';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { DialogComponent } from './dialog/dialog/dialog.component';
+import { CartComponent } from './cart/cart.component';
+import {GooglePayButtonModule} from '@google-pay/button-angular';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ProfileComponent } from './profile/profile.component';
+
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    routComp
+  declarations: 
+  [StoreComponent,
+     ProductsComponent,
+     FilterPipe,
+     DialogComponent,
+     CartComponent,
+     ProfileComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
+    CommonModule,
+    GooglePayButtonModule,
+    StoreRoutingModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
@@ -48,15 +63,19 @@ import {GooglePayButtonModule} from '@google-pay/button-angular'
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    BrowserAnimationsModule,
     MatCardModule,
     MatGridListModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    GooglePayButtonModule,
+    MatTabsModule,
+    FormsModule,
+    MatExpansionModule,
+    MatProgressBarModule,
+    MatBadgeModule,
+   
+    
   ],
-  providers: [HomeService,SnackBarPositionExample,AuthService],
-  bootstrap: [AppComponent]
+  providers: [AuthService,HomeService],
 })
-export class AppModule { }
+export class StoreModule { }

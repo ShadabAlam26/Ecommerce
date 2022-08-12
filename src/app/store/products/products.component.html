@@ -1,0 +1,125 @@
+<mat-form-field appearance="outline">
+    <mat-label>{{label.SEARCH}}</mat-label>
+    <input matInput type="text"  id="search-text" aria-describedby="search-text" 
+    [(ngModel)]="searchProducts" placeholder="Type Product name to Search Products" 
+    autofocus>
+    <mat-icon matSuffix>search</mat-icon>
+   
+  </mat-form-field>
+
+<mat-tab-group mat-align-tabs="start"  (selectedTabChange)="myTabFocusChange($event)">
+    <mat-tab  *ngFor="let val of category" label={{val}}>
+    <div *ngIf="val==='All products'" class="row mt-4 left">
+          <div class="card" *ngFor="let prod of productItems | filter : searchProducts">
+            <div class="content-1">
+                <div class="logo-img">
+                    <img src="" alt="">
+                </div>
+                <img src={{prod.image}} alt="">
+            </div>
+            <div class="content-2">
+                <div class="branding">
+                    <span>{{prod.category.toUpperCase()}}</span>
+                    <span></span>
+                    <span>NEW</span>
+                    <h4 class="ellipsis">{{prod.title}}</h4>
+                </div>
+                <div class="price row" style="margin-top: 50px;">
+                    <div class="col-md-6 text-center">
+                        <span>{{prod.price | currency}}</span>
+                    </div>
+                    <div class="col-md-6 text-center" style="left: 7%;">
+                        <button class="add-cart" (click)="addClickEvent($event,prod)"><i class="fas fa-plus"></i></button>
+                    </div>
+                    
+                </div>
+                
+            </div>
+         </div>    
+    </div>
+    <div  *ngIf="val==='Electronics'" class="row mt-4 left">
+          <div class="card" *ngFor="let prod of electronics | filter : searchProducts">
+            <div class="content-1">
+                <div class="logo-img">
+                    <img src="" alt="">
+                </div>
+                <img src={{prod.image}} alt="">
+            </div>
+            <div class="content-2">
+                <div class="branding">
+                    <span>{{prod.category.toUpperCase()}}</span>
+                    <span></span>
+                    <span>NEW</span>
+                    <h4 class="ellipsis">{{prod.title}}</h4>
+                </div>
+                <div class="price row" style="margin-top: 50px;">
+                    <div class="col-md-6 text-center">
+                        <span>{{prod.price | currency}}</span>
+                    </div>
+                    <div class="col-md-6 text-center" style="left: 7%;">
+                        <button class="add-cart" (click)="addClickEvent($event,prod)"><i class="fas fa-plus"></i></button>
+                    </div>
+                    
+                </div>
+                
+            </div>
+         </div>   
+    </div>
+    <div  *ngIf="val==='Fashion'" class="row mt-4 left">
+        <div class="card" *ngFor="let prod of fashion | filter : searchProducts">
+            <div class="content-1">
+                <div class="logo-img">
+                    <img src="" alt="">
+                </div>
+                <img src={{prod.image}} alt="">
+            </div>
+            <div class="content-2">
+                <div class="branding">
+                    <span>{{prod.category.toUpperCase()}}</span>
+                    <span></span>
+                    <span>NEW</span>
+                    <h4 class="ellipsis">{{prod.title}}</h4>
+                </div>
+                <div class="price row" style="margin-top: 50px;">
+                    <div class="col-md-6 text-center">
+                        <span>{{prod.price | currency}}</span>
+                    </div>
+                    <div class="col-md-6 text-center" style="left: 7%;">
+                        <button class="add-cart" (click)="addClickEvent($event,prod)"><i class="fas fa-plus"></i></button>
+                    </div>
+                    
+                </div>
+                
+            </div>
+         </div>  
+    </div>
+    <div  *ngIf="val==='Jewellery'" class="row mt-4 left">
+        <div class="card" *ngFor="let prod of jewelery | filter : searchProducts">
+            <div class="content-1">
+                <div class="logo-img">
+                    <img src="" alt="">
+                </div>
+                <img src={{prod.image}} alt="">
+            </div>
+            <div class="content-2">
+                <div class="branding">
+                    <span>{{prod.category.toUpperCase()}}</span>
+                    <span></span>
+                    <span>NEW</span>
+                    <h4 class="ellipsis">{{prod.title}}</h4>
+                </div>
+                <div class="price row">
+                    <div class="col-md-6 text-center">
+                        <span>{{prod.price | currency}}</span>
+                    </div>
+                    <div class="col-md-6 text-center" style="left: 7%;">
+                        <button class="add-cart" (click)="addClickEvent($event,prod)"><i class="fas fa-plus"></i></button>
+                    </div>
+                    
+                </div>
+                
+            </div>
+         </div>  
+    </div>
+    </mat-tab>
+</mat-tab-group>

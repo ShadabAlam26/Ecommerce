@@ -1,0 +1,33 @@
+    <div class="container-flex">
+        <mat-card class="width-chnage">
+            <mat-card-title class="text-color mbx0" align="center">{{label.LOGIN_FORM}}</mat-card-title>
+            <mat-card-subtitle class="text-color" align="center">{{label.ENTER_USERNAME}}</mat-card-subtitle>
+           <div></div>
+            <mat-card-content class="mb-0">
+                <form [formGroup]="loginForm" id="loginForms">
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{label.USERNAME}}</mat-label>
+                        <input matInput placeholder="Username" type="text" formControlName="username" id="userName">
+                        <mat-icon matSuffix>perm_identity</mat-icon>
+                        <div *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched">
+                            <small class="text-danger" *ngIf="loginForm.get('username').errors?.required">{{label.USERNAME_REQUIRED}}</small>
+                            <small class="text-danger" *ngIf="loginForm.get('username').errors?.minlength">{{label.MAX_3_LETTER}}</small>
+                        </div>
+                    </mat-form-field>
+     
+            
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{label.PASSWORD}}</mat-label>
+                        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" >
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <small class="text-danger" [class.d-none]="loginForm.get('password').valid || loginForm.get('password').untouched">{{label.PASSWORD_REQUIRED}}</small>
+                    </mat-form-field>
+                </form>    
+            </mat-card-content>
+            <mat-card-actions align="center">
+                <button mat-raised-button color="primary" mat-dialog-close (click)="login()" [disabled]="!loginForm.valid" class="mb-2">{{label.LOGIN}}</button>
+              </mat-card-actions>
+        </mat-card>
+    </div>

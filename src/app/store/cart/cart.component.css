@@ -1,0 +1,53 @@
+
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    width: 79%;
+    margin-left: 8%;
+    font-size: 14px;
+}
+
+.mrgin{
+    margin-right:11%;
+    margin-left: 7%;
+}
+
+  .card{
+        width: 50%;
+        margin-left: 21%;
+        margin-top: 10%;
+  }
+
+  .margin{
+    margin-left: 39%;
+  }
+  
+  .icon
+  {
+      font-size: 169px;;
+      margin-top: 5%;
+  }
+
+.table-detail
+{
+    margin-top: 10px; 
+    width: 80%;
+    margin-left: 8%;
+}
+
+.w-image{
+    width: 80px;
+}
+
+.or
+{
+    margin-top: 1%;margin-right: 3%;
+}
+
+.mt-10
+{
+    margin-top: 10%;
+}

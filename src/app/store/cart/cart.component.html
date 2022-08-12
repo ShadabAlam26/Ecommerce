@@ -1,0 +1,116 @@
+
+
+<ng-container *ngIf="cartDetail.length!=0">
+    <mat-form-field appearance="standard">
+        <mat-label>{{label.CART_FILTER}}</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search Cart" #input>
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8 table-detail">
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{label.ID}} </th>
+            <td mat-cell *matCellDef="let row;let i=index">{{i+1}}</td>
+          </ng-container>
+      
+          <!-- ProductName Column -->
+          <ng-container matColumnDef="productName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{label.PRODUCT_NAME}} </th>
+            <td mat-cell *matCellDef="let row">{{row.title}}</td>
+          </ng-container>
+    
+          <ng-container matColumnDef="img">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{label.IMAGE}} </th>
+            <td mat-cell *matCellDef="let row"><img class="w-image" src={{row.image}} alt="Photo of product"></td>
+          </ng-container>
+      
+          <!-- Category Column -->
+          <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{label.CATEGORY}} </th>
+            <td mat-cell *matCellDef="let row"> {{row.category}} </td>
+          </ng-container>
+    
+      
+          <!-- Price Column -->
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{label.PRICE}} </th>
+            <td mat-cell *matCellDef="let row"> {{row.price }} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{label.QTY}} </th>
+            <td mat-cell *matCellDef="let row">{{row.quantity}}</td>
+          </ng-container>
+      
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{label.AMOUNT}} </th>
+            <td mat-cell *matCellDef="let row">{{row.total}}</td>
+          </ng-container>
+      
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{label.ACTION}} </th>
+            <td mat-cell *matCellDef="let row">
+              <button mat-icon-button color="warn" (click)="removeItem(row)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+    
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+      <div class="mt-2 row mrgin">
+          <div class="col-md-6 text-left">
+            <button mat-raised-button color="warn" class="mr-2" (click)="emptyCart()">{{label.CLEAR_CART}}</button>
+            <button mat-raised-button color="primary" routerLink="/store" class="mr-2">{{label.SHOP_MORE}}</button>
+          </div>
+          <div class="col-md-6 text-right">
+            <button mat-raised-button class="mr-2" color="primary" (click)="makePayment(totalAmount)">Pay ${{totalAmount | number}}</button>
+          </div>
+          <div class="col md-12 text-right text-bold or">
+            OR
+          </div>
+          <div class="col-md-12 text-right">
+         
+            <google-pay-button class="mt-2" 
+            environment="TEST"
+            buttonType="buy"
+            buttonColor="black"
+            [paymentRequest]="payment"
+            (loadpaymentdata)="onLoadPaymentData($event)"
+            (error)="onError($event)"
+            [paymentAuthorizedCallback]="onPaymentDataAuthorized">
+            </google-pay-button>
+          </div>
+        
+
+      </div>
+   
+</ng-container>
+
+<ng-container *ngIf="cartDetail.length===0">
+    <h1 class="text-bold text-color text-center mt-2">{{label.CART_EMPTY}}</h1>
+    <div class="row mt-4 text-center">
+        <div class="col-md-12 mt-10">
+            <div class="icon">
+                <mat-icon class="mt-1" [inline]="true">sentiment_very_dissatisfied</mat-icon> 
+            </div>
+            
+            <div class="icon">
+                <mat-icon [inline]="true">shopping_cart</mat-icon>
+            </div>
+            <button  mat-raised-button color="primary" routerLink="/store">{{label.ADD_CART}}</button>
+        </div>
+  
+    </div>
+</ng-container>

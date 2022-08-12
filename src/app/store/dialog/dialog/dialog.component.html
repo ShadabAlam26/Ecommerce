@@ -1,0 +1,50 @@
+
+<h1 class="text-color">{{label.PRODUCT_DES}} <mat-icon>description</mat-icon></h1>
+
+<hr>
+<mat-card class="example-card m-4">
+    <mat-card-header>
+        <mat-card-title class="text-color">{{data.title}}</mat-card-title>
+        <mat-card-subtitle>{{data.category.toUpperCase()}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+        <p>
+            {{data.description}}
+        </p>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="text-color">
+                    {{label.PRODUCT_REVIEW}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <!-- <p> -->
+                <mat-icon> sentiment_satisfied_alt</mat-icon> {{label.POSITIVE_REV}}
+                <mat-progress-bar mode="determinate" value="80"></mat-progress-bar>
+                <div class="percentage mt-n4">80%</div>
+                <div></div>
+                <mat-icon> bubble_chart</mat-icon> {{label.QUALITY}}
+                <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                <div class="percentage mt-n4">40%</div>
+                <!-- <div style="position: absolute; padding: 10px; color: white;"> 40% </div> -->
+                <div></div>
+                <mat-icon>trending_up</mat-icon> {{label.TRENDING}} 
+                <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
+                <div class="percentage mt-n4">70%</div>
+                <mat-icon>data_usage</mat-icon> {{label.PRODUCT_COUNT}}
+                <mat-progress-bar mode="determinate" value={{data.rating.count}}></mat-progress-bar>
+                <div class="percentage mt-n4">{{data.rating.count}}</div>
+            <!-- </p> -->
+        </mat-expansion-panel>
+    </mat-card-content>
+</mat-card>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button class="mr-2" color="warn" mat-dialog-close>{{label.CLOSE}}</button>
+    <button mat-raised-button color ="primary" (click)="addToCart(data)"> {{label.ADD_CART}} <mat-icon>add</mat-icon></button>
+</div>
+
+<div class="alert alert-success alert-dismissible success" *ngIf="isSuccess" >
+
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> {{successMessage}}
+  </div>

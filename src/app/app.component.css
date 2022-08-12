@@ -1,0 +1,19 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+
+  .menu-item {
+    text-transform: uppercase;
+    cursor:pointer;
+    color: white;
+  }
+  
+  .menu-item.menu-item-active {
+    text-decoration:underline
+  }

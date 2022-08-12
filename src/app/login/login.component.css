@@ -1,0 +1,47 @@
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.mbx0
+{
+  margin-bottom: 25px;
+}
+
+.container-flex{
+    min-height: 100vh;
+    background: #3f51b5;
+    width: 100%;
+}
+
+.width-chnage
+{
+    width: 30%;
+    margin-left: 33%;
+    margin-top: 13%;
+}
+/* 
+#loading{
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    z-index: 1;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 180px;
+    height: 180px;
+    animation: spin 2s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    } */

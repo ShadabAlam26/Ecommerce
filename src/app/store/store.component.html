@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <mat-icon>shopping_basket</mat-icon>
+    <span routerLink="/store">E-commerce</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" style="margin-right: 27px;" aria-label="Example icon-button with menu icon"  routerLink="cart">
+        <mat-icon matBadge={{totalCartItem}} matBadgeColor="warn">add_shopping_cart</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="profile">
+        <mat-icon>tag_faces</mat-icon>
+    </button>
+    <span routerLink="profile" style="margin-right: 27px;" routerLink="profile">Profile</span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="logOut()">
+        <mat-icon>supervised_user_circle</mat-icon>
+    </button>
+    <span  (click)="logOut()">Logout</span>
+</mat-toolbar>
+
+<router-outlet ></router-outlet>
