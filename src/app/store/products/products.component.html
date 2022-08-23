@@ -8,7 +8,7 @@
   </mat-form-field>
 
 <mat-tab-group mat-align-tabs="start"  (selectedTabChange)="myTabFocusChange($event)">
-    <mat-tab  *ngFor="let val of category" label={{val}}>
+    <mat-tab  *ngFor="let val of category" label={{val}} class="clic">
     <div *ngIf="val==='All products'" class="row mt-4 left">
           <div class="card" *ngFor="let prod of productItems | filter : searchProducts">
             <div class="content-1">

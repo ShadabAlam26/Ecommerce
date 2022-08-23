@@ -52,11 +52,13 @@ describe('LoginService',()=>{
             expect(res.length).toBe(4,'Registration not happened');
             
             const user = res.find(x=>x.username==='shadab')
-            expect(user).toBeDefined('User Not present')
+            expect(user).toBeDefined('User Not present');
+            
 
         });
 
        const req =  httpController.expectOne('http://localhost:3000/registerUsers');
+       expect(req.request.method).toEqual('GET');
        req.flush(user);
 
        httpController.verify()
