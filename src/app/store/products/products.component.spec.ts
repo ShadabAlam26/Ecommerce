@@ -120,6 +120,7 @@ describe('ProductsComponent', () => {
      console.log(component.electronics)
      expect(elec[0].id).toEqual(component.electronics[0].id)
     
+     
   })
 
 
