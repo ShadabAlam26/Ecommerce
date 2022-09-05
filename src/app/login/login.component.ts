@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,Validators,FormGroup } from '@angular/forms';
+import { UntypedFormBuilder,Validators,UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { SnackBarPositionExample } from '../common-moda';
@@ -16,12 +16,12 @@ export class LoginComponent implements OnInit {
 
   public label:loginLabel;
 
-  public loginForm:FormGroup;
+  public loginForm:UntypedFormGroup;
   loginAlert: boolean = false;
   loginFail: boolean = false;
 
 
-  constructor(private fb:FormBuilder,private router:Router,private auth:AuthService,private app:AppComponent) { }
+  constructor(private fb:UntypedFormBuilder,private router:Router,private auth:AuthService,private app:AppComponent) { }
 
   ngOnInit(): void {
 
