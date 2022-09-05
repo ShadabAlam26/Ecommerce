@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductLabel } from 'src/app/label-externalisation/product-externalisation';
+import { LoadingService } from 'src/app/loading/loading.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { HomeService } from 'src/app/service/home.service';
 import { DialogComponent } from '../dialog/dialog/dialog.component';
@@ -26,26 +27,30 @@ export class ProductsComponent implements OnInit {
   allProduct: boolean;
   label: ProductLabel;
   
-  constructor(private auth:AuthService,private home:HomeService,public dialog: MatDialog) { }
+  constructor(private auth:AuthService,private home:HomeService,public dialog: MatDialog, private loading:LoadingService) { }
 
   ngOnInit(): void {
 
+    this.getAllProducts();
+     this.label= new ProductLabel();
+  }
 
+  getAllProducts()
+  {
+    this.loading.loadingSpinnerOn();
     this.home.getAllProduct().subscribe(
       res=>
       {
         this.productItems = res;
+        this.loading.loadingSpinnerOff();
         this.productItems.forEach((x:any) => {
           Object.assign(x,{quantity:1,total:x.price})
         });
       }
       
     )
-
-    this.label= new ProductLabel();
   }
 
-  
   /* Method takes mat-tab event, compares the index's and filter the products based on category */
 
 
@@ -54,22 +59,22 @@ export class ProductsComponent implements OnInit {
     if(event.index===0)
     {
       this.allProduct = true;
-      this.ngOnInit();
+      this.getAllProducts()
     }
      else if(event.index===1){
       this.switchCondition = 'case2'
-      this.ngOnInit();
+      this.getAllProducts();
       this.electronics=this.productItems.filter((x)=> x.category.includes(this.category[1].toLowerCase()))
      }
      else if(event.index===2){
       this.switchCondition = 'case3'
-      this.ngOnInit();
+      this.getAllProducts();
       this.fashion=this.productItems.filter((x)=> x.category.includes(`clothing`))
      
      }
      else{
       this.switchCondition = 'case4'
-      this.ngOnInit();
+      this.getAllProducts();
       this.jewelery=this.productItems.filter((x)=> x.category.includes('jewelery'))
      }
    

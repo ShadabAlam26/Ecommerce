@@ -9,6 +9,7 @@ import { ProductsComponent } from './products.component';
 import { DialogComponent } from '../dialog/dialog/dialog.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingService } from 'src/app/loading/loading.service';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
@@ -97,7 +98,7 @@ describe('ProductsComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductsComponent,FilterPipe ],
       imports:[MatDialogModule,HttpClientTestingModule,RouterTestingModule,MatTabsModule,BrowserAnimationsModule],
-      providers:[AuthService,HomeService]
+      providers:[AuthService,HomeService,LoadingService]
     })
     .compileComponents();
   });

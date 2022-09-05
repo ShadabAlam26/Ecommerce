@@ -33,6 +33,7 @@ import { CartComponent } from './cart/cart.component';
 import {GooglePayButtonModule} from '@google-pay/button-angular';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ProfileComponent } from './profile/profile.component';
+import { LoadingComponent } from '../loading/loading.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ProfileComponent } from './profile/profile.component';
      FilterPipe,
      DialogComponent,
      CartComponent,
-     ProfileComponent
+     ProfileComponent,
+     LoadingComponent
   ],
   imports: [
     CommonModule,

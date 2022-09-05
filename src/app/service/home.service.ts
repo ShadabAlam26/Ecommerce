@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../modal/user.modal';
 import { Observable } from 'rxjs';
+import {shareReplay} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,9 @@ export class HomeService {
 
   getAllProduct()
   {
-    return this.http.get<any>(this._productsUrl)
+    return this.http.get<any>(this._productsUrl).pipe(
+      shareReplay()
+    )
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AppComponent } from '../app.component';
+import { LoadingService } from '../loading/loading.service';
 import { AuthService } from '../service/auth.service';
 import { CartService } from '../service/cart.service';
 import { HomeService } from '../service/home.service';
@@ -11,7 +12,10 @@ import { Products } from './product.modal';
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
-  styleUrls: ['./store.component.css']
+  styleUrls: ['./store.component.css'],
+  providers:[
+    LoadingService
+  ]
 })
 export class StoreComponent implements OnInit {
 
@@ -25,7 +29,7 @@ export class StoreComponent implements OnInit {
   allProduct: boolean;
   cartDetail: any;
   totalCartItem: number = 0;
-  constructor(private auth:AuthService,private home:HomeService,public dialog: MatDialog,private cartService:CartService,private app:AppComponent) { }
+  constructor(private loadingService:LoadingService, private auth:AuthService,private home:HomeService,public dialog: MatDialog,private cartService:CartService,private app:AppComponent) { }
 
   ngOnInit(): void {
 
